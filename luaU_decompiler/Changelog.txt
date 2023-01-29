@@ -1,0 +1,111 @@
+V1.02 { Hotfix }
+
+==Patched==
+* Fixed loop iterations.
+* Rewrote table for parsing should be less buggy.
+* Fixed table size issue.
+* Fixed bug where table will get picked up as a call routine dest in a call routine.
+* Fixed else end encapsulation bug.
+* Fixed OP_DUPTABLE size bug.
+
+==Known==
+**Most sense V1.02**
+- Known table issue.
+- Bug using empty table will cause table concatation to end.
+- Get varargs in table makes table become nul. 
+
+==Todo==
+**All sense V1.02**
+
+
+
+
+V1.02 { Patch }
+
+==Patched==
+* Fixed bug where branches wont detect first pos as a branch. 
+* Fixed getargs loop bug.
+* Fixed OP_CONCAT to actually concat the data instead of adding it. 
+* Added compiler info. 
+* Added OP_CONCAT routines.
+* Added locvar to skip concat routines refer to compiler info.
+* Added if table gets indexs without the indexs existing it will return as empty table. 
+* Fixed bug where table will get cached even if it's empty.
+* Fixed bug where get_args will not repsect OP_VARARGS 2nd operand.
+* Fixed bug where OP_GETVARARGS 2nd operand would get ignored. 
+* Fixed bug where OP_NAMECALL disp in get_arg was 1 instead of proper size.
+* Fixed bug where legals chars wasnt working correctly.
+* Fixed bug where global functions will become variables.
+* Made locvars more logical.
+* Fixed bug where making random var before return noyt getting used will not make locvar. 
+* Fixed return arg. 
+* Fixed end for settlist multret. 
+* Fixed bug where locvar will always get set at end of logical operation routine not when it's needed.
+* Fixed breaking compare always being opposite with some routines. 
+
+==Known==
+**All sense V1.00**
+++ If you have ends of branches before a else statement that else will get messed up in the wrong branch.
+
+==Todo==
+**All sense V1.00**
+
+
+
+
+V1.01 { Patch }
+
+==Patched==
+* Fixed bug where locvar would set for all regs before branching bug.
+* Fixed bug where using OP_SETTABLEKS would cause all operands to become locvars.
+* Fixed bug where using locvar inside branch with routine and using it as source on outside causes it not to become locvar.
+* Fixed bug where logical operation will not detect loops.
+* Fixed bug where using one compare in a until loop compare will cause its begin to be 0.
+* [Concerning] - Removed jumpback end from while end as it was causing issues maybe it will cause other issues in the future.
+* Fixed bug where using repeat and while at the same ip will cause repeat too use end instead of until.
+* Fixed settableks detection for locvars.
+* Fixed namecall detection for locvars.
+* Fixed bug where using OP_SETTABLE to set field would cause it to not use semicolon.
+* Fixed call dest reg for get arg.
+* Fixed OP_SETTABLEKS for dest reg for get args.
+* Fixed bug where some branches will form in concat routine.
+
+==Known==
+**All sense V1.00**
+* ADD LOGICAL OPERAtiON SUPPORT TO CALLS AND CONCAT. 
+
+==Todo==
+**All sense V1.00**
+
+
+
+
+V1.00 { Release }
+
+*Started documentation with changelogs. 
+
+==Patched==
+* Fixed loop scopping bug
+* Fixed until bug
+* Fixed while bug
+* Added or support for branches.
+* Added else support for branches.
+* Fixed get args bug.
+* Fixed minor table bug.
+
+==Known==
+* Comparing compares will cause code to bug out ie. local abv = ((abx == abc) == (op == kvm));
+* Tables don't work sometimes with duptable.
+* No elseif support.
+* Before a branch routine the compare will become a variable when it usally isn't throwing execution off.
+* Known proto bug that shows up rarley with closures +100.
+* Parenthesize with comparisions still not fully supported but detected atm ei. local abc = ((op and kvm) or (io and jj));
+
+
+==Todo==
+* Further fix bugs and add more support.
+* Better document stuff.
+* Find more bugs to fix.
+* Better document stuff.
+* Clean up code and make it more efficient.
+* Check readme.
